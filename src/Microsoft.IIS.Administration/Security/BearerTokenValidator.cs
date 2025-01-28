@@ -66,7 +66,9 @@ namespace Microsoft.IIS.Administration.Security {
                 // Unauthenticated Principal
                 return new ClaimsPrincipal(); 
             }
-
+            // key not null but null ExpiresOn here, must be a 'never expire' key
+            if (key.ExpiresOn == null)
+                key.ExpiresOn = DateTime.MaxValue;
             //
             // Success!
             validatedToken = new SecurityToken(key);

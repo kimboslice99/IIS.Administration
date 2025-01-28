@@ -129,12 +129,6 @@ namespace Microsoft.IIS.Administration.Security {
                 return null;
             }
 
-            if(apiKey.ExpiresOn == null) {
-                apiKey.ExpiresOn = DateTime.UtcNow.AddYears(100);
-            }
-
-            //
-            // Fine. Cache a valid key
             _tokenCache.Set(token, apiKey, TokenCacheExpiration);
 
             return apiKey;
