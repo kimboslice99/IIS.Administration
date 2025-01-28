@@ -54,7 +54,7 @@ namespace Microsoft.IIS.Administration.Security {
 
         public override DateTime ValidTo {
             get {
-                return _key.ExpiresOn ?? DateTime.MaxValue;
+                return _key.ExpiresOn ?? DateTime.UtcNow.AddYears(1);
             }
         }
     }
