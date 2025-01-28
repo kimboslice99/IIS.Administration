@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <IISAdministrationVersion>6.0.0</IISAdministrationVersion>
-        <IISAdministrationTargetFramework>net6.0</IISAdministrationTargetFramework>
+        <IISAdministrationTargetFramework>net8.0</IISAdministrationTargetFramework>
         <MicroBuildCoreVersion>0.3.0</MicroBuildCoreVersion>
     </PropertyGroup>
 </Project>
