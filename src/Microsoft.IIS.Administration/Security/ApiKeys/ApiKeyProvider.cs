@@ -124,9 +124,14 @@ namespace Microsoft.IIS.Administration.Security {
 
             //
             // Check expiration
-            if (apiKey == null || apiKey.ExpiresOn <= DateTime.UtcNow) {
+            if (apiKey == null || (apiKey.ExpiresOn != null && apiKey.ExpiresOn <= DateTime.UtcNow)) {
                 _tokenCache.Remove(token);
                 return null;
+            }
+
+            if(apiKey.ExpiresOn == null)
+            {
+                apiKey.ExpiresOn = DateTime.UtcNow.AddYears(100);
             }
 
             //
