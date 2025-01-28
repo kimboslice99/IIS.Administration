@@ -129,8 +129,7 @@ namespace Microsoft.IIS.Administration.Security {
                 return null;
             }
 
-            if(apiKey.ExpiresOn == null)
-            {
+            if(apiKey.ExpiresOn == null) {
                 apiKey.ExpiresOn = DateTime.UtcNow.AddYears(100);
             }
 
