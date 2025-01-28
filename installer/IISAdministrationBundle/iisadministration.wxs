@@ -37,23 +37,23 @@
                          Result="value"
                          Variable="DOTNET_RUNTIME_VERSION"
                          Win64="$(var.IsWin64)" />
-    <Variable Name="DOTNET_RUNTIME_VERSION_MINIMAL" Type="version" Value='6.0.1' />
+    <Variable Name="DOTNET_RUNTIME_VERSION_MINIMAL" Type="version" Value='8.0.12' />
     <PackageGroup Id="dotnet_core_pkg">
       <ExePackage Id="dotnet_core_exe"
-                  Name="dotnet-runtime-6.0.1-win-x64.exe"
+                  Name="dotnet-runtime-8.0.12-win-x64.exe"
                   Permanent="yes"
                   Compressed="no"
                   Vital="no"
-                  DownloadUrl="https://download.visualstudio.microsoft.com/download/pr/df4372ca-82c8-4bfa-acf9-c49e27279e7e/6bddefd26964017ff520dc1443029e04/dotnet-runtime-6.0.1-win-x64.exe"
+                  DownloadUrl="https://download.visualstudio.microsoft.com/download/pr/136f4593-e3cd-4d52-bc25-579cdf46e80c/8b98c1347293b48c56c3a68d72f586a1/dotnet-runtime-8.0.12-win-x64.exe"
                   DetectCondition="(DOTNET_RUNTIME_VERSION) AND (DOTNET_RUNTIME_VERSION &gt;= DOTNET_RUNTIME_VERSION_MINIMAL)"
                   InstallCommand="/q /norestart">
           <!-- Information retrieved with the Heat tool of the WiX toolset -->
           <!-- installer\packages\WiX.3.11.1\tools\heat.exe payload dotnet-runtime-6.0.1-win-x64.exe -o dotnet-runtime-6.0.1-win-x64.wxs -->
-          <RemotePayload CertificatePublicKey="82114C41DDD3E62FB432F3CFEE5D44FDB02C1471" 
-                  CertificateThumbprint="60FF375E5669B98D43EA0E2328E618CF73C0F91D"
-                  Description="Microsoft .NET Runtime - 6.0.1 (x64)" 
-                  Hash="5C53CF49B2F58CB8D05C29A865B80690C816975C" 
-                  ProductName="Microsoft .NET Runtime - 6.0.1 (x64)" Size="28383304" Version="6.0.1.30717" /> 
+          <RemotePayload  CertificatePublicKey="E95869A2D2CA683668C2AFB141D853FBF99E4F82"
+                  CertificateThumbprint="724C8D7BBEB78F2618147BF7BA8060AC308B7468"
+                  Description="Microsoft .NET Runtime - 8.0.12 (x64)"
+                  Hash="D8E64F8A47566F0C95EA0A760460B0FAA6153D31"
+                  ProductName="Microsoft .NET Runtime - 8.0.12 (x64)" Size="28563896" Version="8.0.12.34403" />
       </ExePackage>
     </PackageGroup>
   </Fragment>
@@ -62,27 +62,27 @@
     <!--This would not work when only 6.0 preview is installed. Must manually uninstall 6.0 preview-->
     <util:RegistrySearch Id="ASPNET_CORE_60_SHARED_FRAMEWORK_SEARCH"
                          Root="HKLM"
-                         Key="SOFTWARE\Microsoft\ASP.NET Core\Shared Framework\v6.0"
+                         Key="SOFTWARE\Microsoft\ASP.NET Core\Shared Framework\v8.0"
                          Result="exists"
-                         Variable="ASPNET_CORE_60_SHARED_FRAMEWORK_EXISTS"
+                         Variable="ASPNET_CORE_80_SHARED_FRAMEWORK_EXISTS"
                          Win64="$(var.IsWin64)" />
     <PackageGroup Id="aspnetcore_pkg">
       <ExePackage Id="aspnetcore_exe"
-                  Name="aspnetcore-runtime-6.0.1-win-x64.exe"
+                  Name="aspnetcore-runtime-8.0.12-win-x64.exe"
                   Permanent="yes"
                   Compressed="no"
                   Vital="no"
-                  DownloadUrl="https://download.visualstudio.microsoft.com/download/pr/d526db30-5bfe-4c24-808c-4d8f5d2ba479/ae90c40bdefb2f1775d812ede8e84309/aspnetcore-runtime-6.0.1-win-x64.exe"
-                  DetectCondition="(ASPNET_CORE_60_SHARED_FRAMEWORK_EXISTS)"
+                  DownloadUrl="https://download.visualstudio.microsoft.com/download/pr/462a0410-741f-4368-a3eb-9014e33d83be/fe802ebd409a3a1c8d2646c2ce546997/aspnetcore-runtime-8.0.12-win-x64.exe"
+                  DetectCondition="(ASPNET_CORE_80_SHARED_FRAMEWORK_EXISTS)"
                   InstallCommand="/q /norestart">
 
         <!-- Information retrieved with the Heat tool of the WiX toolset -->
         <!-- installer\packages\WiX.3.11.1\tools\heat.exe payload aspnetcore-runtime-2.1.9-win-x64.exe -o aspnetcore-runtime-2.1.9-win-x64.wxs -->
-        <RemotePayload CertificatePublicKey="82114C41DDD3E62FB432F3CFEE5D44FDB02C1471" 
-                  CertificateThumbprint="60FF375E5669B98D43EA0E2328E618CF73C0F91D" 
-                  Description="Microsoft ASP.NET Core 6.0.1 - Shared Framework (x64)" 
-                  Hash="9AFB2F6265FF780E077089C8294F9FFBA7BC049D" 
-                  ProductName="Microsoft ASP.NET Core 6.0.1 - Shared Framework (x64)" Size="8896496" Version="6.0.1.21567" />
+        <RemotePayload CertificatePublicKey="233D5DBCF22E99F84BE4CE6D3F902D4A930D3653"
+                CertificateThumbprint="245D262748012A4FE6CE8BA6C951A4C4AFBC3E5D"
+                Description="Microsoft ASP.NET Core 8.0.12 - Shared Framework (x64)"
+                Hash="2D20C844920900507715E27397F0B6DF43235673"
+                ProductName="Microsoft ASP.NET Core 8.0.12 - Shared Framework (x64)" Size="10421288" Version="8.0.12.24603" />
       </ExePackage>
     </PackageGroup>
   </Fragment>
