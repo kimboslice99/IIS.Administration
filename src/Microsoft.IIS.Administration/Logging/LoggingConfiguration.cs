@@ -24,7 +24,7 @@ namespace Microsoft.IIS.Administration.Logging
             Enabled = configuration.GetValue("logging:enabled", true);
             LogsRoot = Environment.ExpandEnvironmentVariables(configuration.GetValue("logging:path", string.Empty));
             MinLevel = configuration.GetValue("logging:min_level", LogLevel.Error);
-            FileName = configuration.GetValue("logging:file_name", "log-{Date}.txt");
+            FileName = configuration.GetValue("logging:file_name", "log_.txt");
             MaxFiles = configuration.GetValue("logging:max_files", 50);
         }
 
