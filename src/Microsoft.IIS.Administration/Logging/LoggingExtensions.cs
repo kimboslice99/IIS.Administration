@@ -41,9 +41,13 @@ namespace Microsoft.IIS.Administration.Logging
                 .MinimumLevel
                 .Is(LoggingConfiguration.ToLogEventLevel(minLevel))
                 .WriteTo
-                .RollingFile(Path.Combine(logsRoot, loggingConfiguration.FileName), retainedFileCountLimit: loggingConfiguration.MaxFiles)
+                .File(
+                    Path.Combine(logsRoot, loggingConfiguration.FileName),
+                    rollingInterval: RollingInterval.Day,
+                    retainedFileCountLimit: loggingConfiguration.MaxFiles
+                )
                 .CreateLogger();
-            
+
             //
             // Wire up logging as soon as possible
             ILoggerFactory loggerFactory = services.BuildServiceProvider().GetRequiredService<ILoggerFactory>();
@@ -78,7 +82,11 @@ namespace Microsoft.IIS.Administration.Logging
                 .MinimumLevel
                 .Is(LoggingConfiguration.ToLogEventLevel(minLevel))
                 .WriteTo
-                .RollingFile(Path.Combine(auditRoot, auditingConfiguration.FileName), retainedFileCountLimit: auditingConfiguration.MaxFiles)
+                .File(
+                    Path.Combine(auditRoot, auditingConfiguration.FileName),
+                    rollingInterval: RollingInterval.Day,
+                    retainedFileCountLimit: auditingConfiguration.MaxFiles
+                )
                 .CreateLogger();
 
             _ = services.AddSingleton<INonsensitiveAuditingFields>(new NonsensitiveAuditingFields());
