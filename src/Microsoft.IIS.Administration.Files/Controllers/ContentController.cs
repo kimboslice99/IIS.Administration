@@ -84,6 +84,7 @@ namespace Microsoft.IIS.Administration.Files
 
         private void AddHttpLinkHeader(FileId fileId)
         {
+            // TODO
             Context.Response.Headers.Add("Link", $"</{Defines.FILES_PATH}/{fileId.Uuid}>; rel=\"meta\"; title=\"file metadata\", </{Defines.CONTENT_PATH}/{fileId.Uuid}>; rel=\"self\"; title=\"self\"");
         }
     }

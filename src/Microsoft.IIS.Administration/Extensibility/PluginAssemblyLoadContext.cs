@@ -34,6 +34,7 @@ namespace Microsoft.IIS.Administration.Extensibility
                     {
                         throw new ApplicationException($"Conflicting cultures for {target}, app: {existingName.CultureInfo} plugin: {target.CultureInfo}");
                     }
+                    // TODO
                     if (existingName.ProcessorArchitecture != target.ProcessorArchitecture &&
                         target.ProcessorArchitecture != ProcessorArchitecture.None)
                     {
