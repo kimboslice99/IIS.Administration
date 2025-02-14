@@ -50,7 +50,7 @@ function StartService
 {
     param (
     [Parameter(Mandatory=$true)][string]$name,
-    [Parameter(Mandatory=$false)][int]$retries = 2,
+    [Parameter(Mandatory=$false)][int]$retries = 5,
     [Parameter(Mandatory=$false)][int]$secondsDelay = 1
     )
 
